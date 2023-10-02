@@ -1,6 +1,9 @@
 GET http://localhost:3001/api/blogs
 
 ###
+GET http://localhost:3001/api/users
+
+###
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
 
@@ -18,3 +21,34 @@ Content-Type: application/json
 {
   "likes":8
 }
+
+###
+POST http://localhost:3001/api/users
+Content-Type: application/json
+
+{
+  "username":"raju",
+  "name":"raju",
+  "password":"123"
+
+}
+
+###
+POST http://localhost:3001/api/login
+Content-Type: application/json
+
+{
+  "username":"raju",
+  "password":"123"
+
+}
+
+###
+PUT  http://localhost:3001/api/users/raju
+Content-Type: application/json
+
+{
+  "username":"KAJU"
+  
+}
+
