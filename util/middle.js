@@ -7,8 +7,12 @@ const blogFinder = async (req, res, next) => {
 
 const errorHandler = (error, request, response, next) => {
     console.log(error.message)
-    response.status(500).json({ error: 'Internal server Error' })
 
+    if (error.name === "SequelizeValidationError") {
+        return response.status(400).send({ error: error.message })
+    }
+    //response.status(500).json({ error: 'Internal server Error' })
+    next(error)
 }
 
 module.exports = { blogFinder, errorHandler }
