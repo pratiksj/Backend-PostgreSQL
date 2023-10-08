@@ -10,10 +10,10 @@ authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imxhe
 
 {
    "author":"usha",
-   "title":"last",
+   "title":"test",
    "url":"www.kathmandu.post",
    "likes":4,
-   "year":1995
+   "year":2025
    
 }
 
@@ -30,7 +30,7 @@ POST http://localhost:3001/api/users
 Content-Type: application/json
 
 {
-  "username":"usha",
+  "username":"laxmi",
   "name":"usha",
   "password":"123"
 
@@ -62,3 +62,33 @@ authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InByY
 
 ###
 GET http://localhost:3001/api/authors
+
+
+###
+POST http://localhost:3001/api/blogs/reading
+Content-Type: application/json
+authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzaGEiLCJpZCI6MiwiaWF0IjoxNjk2Nzg0MjY4fQ.BPDTOWkt-M7HV28k9nJEokROz54o5imPxECPY67XEOA
+
+{
+   "blogId":"5",
+   "userId":"2",
+   "isRead":"false"
+   
+   
+}
+
+###
+GET http://localhost:3001/api/blogs/reading
+
+
+###
+PUT  http://localhost:3001/api/blogs/reading/6
+Content-Type: application/json
+authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxheG1pIiwiaWQiOjEsImlhdCI6MTY5Njc4NjM4M30.Sm13ewtB19DjWON7nyprt5yYaVc23nKHdyhovln0MUo
+
+{
+   
+   "isRead":"false"
+
+   
+}

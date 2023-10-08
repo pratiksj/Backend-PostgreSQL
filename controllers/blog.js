@@ -1,7 +1,7 @@
 
 const blogRouter = require('express').Router()
 const { Op, fn, col } = require('sequelize')
-const { Blog, User } = require('../model')
+const { Blog, User, ReadingTables } = require('../model')
 const { blogFinder, tokenExtrator } = require('../util/middle')
 
 blogRouter.get('/', async (req, res, next) => {
@@ -36,20 +36,19 @@ blogRouter.get('/', async (req, res, next) => {
 
 blogRouter.post('/', tokenExtrator, async (req, res, next) => {
     try {
-        console.log(req.body, 'from post')
+
         const user = await User.findByPk(req.decodedToken.id)
 
         const blog = await Blog.create({ ...req.body, userId: user.id })
-        // blog.userId = user.id
-        // await blog.save()
+
         res.json(blog)
 
-        //const blog = await Blog.create(req.body)
-        //res.json(blog)
     } catch (error) {
         next(error)
     }
 })
+
+
 
 blogRouter.put('/:id', blogFinder, async (req, res, next) => {
     try {
@@ -79,6 +78,52 @@ blogRouter.delete('/:id', tokenExtrator, blogFinder, async (req, res, next) => {
 
 
 })
+
+blogRouter.get('/reading', async (req, res, next) => {
+    const getTable = await ReadingTables.findAll()
+    res.json(getTable)
+})
+
+
+blogRouter.post('/reading', tokenExtrator, async (req, res, next) => {
+    try {
+        const user = await User.findByPk(req.decodedToken.id)
+        if (user) {
+            const addedBlog = await ReadingTables.create({ ...req.body })
+            res.json(addedBlog)
+        }
+    } catch (error) {
+        next(error)
+    }
+
+
+
+})
+
+blogRouter.put('/reading/:id', tokenExtrator, async (req, res, next) => {
+    try {
+        const user = await User.findByPk(req.decodedToken.id)
+        console.log(user.id, 'user-id')
+
+        const requestBlog = await ReadingTables.findByPk(req.params.id)
+
+        if (user.id !== requestBlog.userId) {
+            res.status(401).json({ error: 'Unauthorized' })
+        }
+        if (requestBlog) {
+            requestBlog.isRead = req.body.isRead
+            await requestBlog.save()
+            res.json(requestBlog)
+        }
+
+    } catch (error) {
+        next(error)
+    }
+
+
+
+})
+
 
 
 
