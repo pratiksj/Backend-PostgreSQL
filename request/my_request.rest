@@ -6,12 +6,13 @@ GET http://localhost:3001/api/users
 ###
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
-authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzaGFAZ21haWwuY29tIiwiaWQiOjIsImlhdCI6MTY5Njc1OTMyNX0._fu8Ay7m7XULK4bB_uOUimAdmDJG2iicwkr81O01xAo
+authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzaGEiLCJpZCI6MiwiaWF0IjoxNjk2Nzc3MDM0fQ.6sLJARDsxY6JJ4ryn0SfRqHc5fHc03DJBdF0Q_IpDK4
 
 {
-   "author":"this is mine usha",
-   "title":"Another note of mine",
-   "url":"www.kathmandu.post"
+   "author":"usha",
+   "title":"blogsecond from usha",
+   "url":"www.kathmandu.post",
+   "likes":4
    
 }
 
@@ -28,7 +29,7 @@ POST http://localhost:3001/api/users
 Content-Type: application/json
 
 {
-  "username":"usha@gmail.com",
+  "username":"usha",
   "name":"usha",
   "password":"123"
 
@@ -39,7 +40,7 @@ POST http://localhost:3001/api/login
 Content-Type: application/json
 
 {
-  "username":"pratiksharai728@gmail.com",
+  "username":"usha",
   "password":"123"
 
 }

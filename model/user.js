@@ -12,11 +12,11 @@ User.init({
     },
     username: {
         type: DataTypes.STRING,
-        validate: {
-            isEmail: true
-        }
-        // unique: true,
-        // allowNull: false
+        // validate: {
+        //     isEmail: true
+        // }
+        unique: true,
+        allowNull: false
     },
     name: {
         type: DataTypes.STRING,
@@ -25,12 +25,15 @@ User.init({
     passwordHash: {
         type: DataTypes.TEXT,
         allowNull: false,
-    }
-}, {
-    sequelize,
-    underscored: true,
-    timestamps: true,
-    modelName: 'user'
-})
+    },
+    createdAt: DataTypes.DATE,
+    updatedAt: DataTypes.DATE,
+},
+    {
+        sequelize,
+        underscored: true,
+        timestamps: true,
+        modelName: 'user'
+    })
 
 module.exports = User

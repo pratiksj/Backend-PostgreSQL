@@ -13,6 +13,7 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res, next) => {
     try {
+
         const { username, name, password } = req.body
         const saltRound = 10
         const passwordHash = await bcrpt.hash(password, saltRound)
