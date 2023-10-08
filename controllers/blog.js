@@ -1,6 +1,6 @@
 
 const blogRouter = require('express').Router()
-const { Op } = require('sequelize')
+const { Op, fn, col } = require('sequelize')
 const { Blog, User } = require('../model')
 const { blogFinder, tokenExtrator } = require('../util/middle')
 
@@ -23,7 +23,11 @@ blogRouter.get('/', async (req, res, next) => {
                 model: User,
                 attributes: ['name']
             },
-            where
+            where,
+            order: [
+                ['likes', 'DESC']
+            ]
+
         })
         res.json(blogs)
     } catch (error) { next(error) }
@@ -75,5 +79,7 @@ blogRouter.delete('/:id', tokenExtrator, blogFinder, async (req, res, next) => {
 
 
 })
+
+
 
 module.exports = blogRouter

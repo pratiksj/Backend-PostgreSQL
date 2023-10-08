@@ -6,6 +6,7 @@ const blogRouter = require('./controllers/blog')
 const { errorHandler } = require('./util/middle')
 const userRouter = require('./controllers/user')
 const loginRouter = require('./controllers/login')
+const authorRouter = require('./controllers/author')
 
 
 app.use(express.json())
@@ -13,6 +14,7 @@ app.use(express.json())
 app.use('/api/blogs', blogRouter)
 app.use('/api/users', userRouter)
 app.use('/api/login', loginRouter)
+app.use('/api/authors', authorRouter)
 app.use(errorHandler)
 
 const start = async () => {
