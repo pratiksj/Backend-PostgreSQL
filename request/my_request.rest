@@ -10,7 +10,7 @@ authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVza
 
 {
    "author":"this is seccond usha",
-   "title":"another note second",
+   "title":"Another note of mine",
    "url":"www.kathmandu.post"
    
 }
