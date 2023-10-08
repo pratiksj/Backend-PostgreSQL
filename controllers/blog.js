@@ -36,12 +36,12 @@ blogRouter.get('/', async (req, res, next) => {
 
 blogRouter.post('/', tokenExtrator, async (req, res, next) => {
     try {
-
+        console.log(req.body, 'from post')
         const user = await User.findByPk(req.decodedToken.id)
 
-        const blog = Blog.build({ ...req.body })
-        blog.userId = user.id
-        await blog.save()
+        const blog = await Blog.create({ ...req.body, userId: user.id })
+        // blog.userId = user.id
+        // await blog.save()
         res.json(blog)
 
         //const blog = await Blog.create(req.body)
