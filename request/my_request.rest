@@ -9,7 +9,7 @@ Content-Type: application/json
 authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzaGFAZ21haWwuY29tIiwiaWQiOjIsImlhdCI6MTY5Njc1OTMyNX0._fu8Ay7m7XULK4bB_uOUimAdmDJG2iicwkr81O01xAo
 
 {
-   "author":"this is seccond usha",
+   "author":"this is mine usha",
    "title":"Another note of mine",
    "url":"www.kathmandu.post"
    
