@@ -6,12 +6,13 @@ GET http://localhost:3001/api/users
 ###
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
+authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzaGFAZ21haWwuY29tIiwiaWQiOjIsImlhdCI6MTY5Njc1OTMyNX0._fu8Ay7m7XULK4bB_uOUimAdmDJG2iicwkr81O01xAo
 
 {
-   "author":"",
+   "author":"this is seccond usha",
    "title":"another note second",
-   "url":"www.kathmandu.post",
-   "likes":0
+   "url":"www.kathmandu.post"
+   
 }
 
 ###
@@ -27,8 +28,8 @@ POST http://localhost:3001/api/users
 Content-Type: application/json
 
 {
-  "username":"pratiksharai728@gmail.com",
-  "name":"pratiksha",
+  "username":"usha@gmail.com",
+  "name":"usha",
   "password":"123"
 
 }
@@ -38,7 +39,7 @@ POST http://localhost:3001/api/login
 Content-Type: application/json
 
 {
-  "username":"raju",
+  "username":"pratiksharai728@gmail.com",
   "password":"123"
 
 }
@@ -51,4 +52,9 @@ Content-Type: application/json
   "username":"KAJU"
   
 }
+
+###
+DELETE http://localhost:3001/api/blogs/3
+Content-Type: application/json
+authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InByYXRpa3NoYXJhaTcyOEBnbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNjk2NzYwMDUyfQ.O7ELThUSU2sCPgcAP5oyaFQjw4HIqqWWNnGEwD4-0wU
 
